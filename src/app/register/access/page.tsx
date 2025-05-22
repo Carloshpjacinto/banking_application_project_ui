@@ -1,12 +1,12 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable @next/next/no-html-link-for-pages */
+
 'use client';
 import { signIn } from 'next-auth/react';
 import { FormEvent } from 'react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import Footer from '@/components/Footer';
-import FormRegister from '@/components/Forms/FormRegister';
+import FormRegisterAccess from '@/components/Forms/FormRegisterAccess';
 
 export default function LoginPage() {
   const router = useRouter();
@@ -15,12 +15,12 @@ export default function LoginPage() {
     event.preventDefault();
     const form = event.target as HTMLFormElement;
     const email = form.email.value;
-    const password = form.password.value;
+    const num_account = form.password.value;
 
     const response = await signIn('credentials', {
       redirect: false,
       email,
-      password,
+      num_account,
     });
 
     if (response?.ok) {
@@ -42,34 +42,20 @@ export default function LoginPage() {
           priority
           className="w-50 h-20 object-cover"
         />
-        <div className="flex items-center text-[2rem] font-medium space-x-20 mr-[5rem]">
-          <a
-            href="/"
-            className="hover:text-black transition-colors duration-500"
-          >
-            Home
-          </a>
-          <a
-            href="/login"
-            className="hover:text-black transition-colors duration-500"
-          >
-            Acessar
-          </a>
-        </div>
       </div>
 
       <div className="flex flex-row justify-between">
-        <main className="flex flex-col items-center text-center mt-55 ml-40 px-8">
+        <main className="flex flex-col items-center text-center mt-45 ml-40 px-8">
           <section
             id="infoContact"
             className="flex flex-col items-center max-w-[800px]"
           >
             <div className="mb-[20rem]">
               <h1 className="text-[5.5rem] font-semibold mb-8">
-                Crie sua conta e conheça o novo!
+                Cadastre uma senha de 6 dígitos para criar sua conta digital!
               </h1>
               <p className="text-[2.2rem]">
-                Você receberá no seu e-mail seus dados da nova conta.
+                Escolha o melhor tipo de conta para você.
               </p>
             </div>
 
@@ -81,7 +67,7 @@ export default function LoginPage() {
           </section>
         </main>
 
-        <FormRegister />
+        <FormRegisterAccess />
       </div>
 
       <Footer />
