@@ -5,7 +5,7 @@ const Navbar = () => {
     <nav className="w-full flex items-center text-[2rem] font-medium bg-green-kpp text-white pt-[2.5rem] pr-[10rem] pb-[2rem] max-[102.4rem]:pr-[5rem] justify-between">
       <Image
         src="/kpp.png"
-        alt="Foto_de_modelo"
+        alt="Logo_do_banco"
         width={300}
         height={300}
         quality={90}
