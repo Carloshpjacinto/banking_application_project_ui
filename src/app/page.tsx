@@ -1,6 +1,6 @@
-import Footer from "@/components/Footer";
-import Navbar from "@/components/Nav";
-import Image from "next/image";
+import Footer from '@/components/Footer';
+import Navbar from '@/components/Nav';
+import Image from 'next/image';
 
 export default function Home() {
   return (
@@ -24,13 +24,13 @@ export default function Home() {
           <div className="mt-[4rem] ml-[-2rem] font-medium text-[2rem] leading-[5rem] mr-[40rem]">
             <p>
               O <strong>Kontopp</strong> é um banco digital que nasce com um
-              propósito claro: unir{" "}
+              propósito claro: unir{' '}
               <strong>tecnologia, inovação e excelência</strong> para
               transformar a experiência financeira.
             </p>
             <p>
               Mais do que produtos financeiros, entregamos soluções
-              inteligentes, funcionais e de alta performance, com foco em{" "}
+              inteligentes, funcionais e de alta performance, com foco em{' '}
               <strong>qualidade, segurança e eficiência</strong>.
             </p>
             <p>
