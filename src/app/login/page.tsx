@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @next/next/no-html-link-for-pages */
 'use client';
 import { signIn } from 'next-auth/react';
 import { FormEvent } from 'react';
@@ -43,8 +45,7 @@ export default function LoginPage() {
         <div className="flex items-center text-[2rem] font-medium space-x-20 mr-[5rem]">
           <a
             href="/"
-            className="hover:text-black transition-colors duration-500"
-          >
+            className="hover:text-black transition-colors duration-500">
             Home
           </a>
           <a href="/register">
