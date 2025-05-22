@@ -6,7 +6,7 @@ import { FormEvent } from 'react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import Footer from '@/components/Footer';
-import FormLogin from '@/components/Form/FormLogin';
+import FormLogin from '@/components/Forms/FormLogin';
 
 export default function LoginPage() {
   const router = useRouter();
@@ -14,17 +14,17 @@ export default function LoginPage() {
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const form = event.target as HTMLFormElement;
-    const email = form.email.value;
-    const password = form.password.value;
+    const num_account = form.num_account.value;
+    const access = form.access.value;
 
     const response = await signIn('credentials', {
       redirect: false,
-      email,
-      password,
+      num_account,
+      access,
     });
 
     if (response?.ok) {
-      router.push('/');
+      router.push('/perfil');
     } else {
       alert('erro na autenticação');
     }
@@ -45,7 +45,8 @@ export default function LoginPage() {
         <div className="flex items-center text-[2rem] font-medium space-x-20 mr-[5rem]">
           <a
             href="/"
-            className="hover:text-black transition-colors duration-500">
+            className="hover:text-black transition-colors duration-500"
+          >
             Home
           </a>
           <a href="/register">
@@ -81,7 +82,52 @@ export default function LoginPage() {
           </section>
         </main>
 
-        <FormLogin />
+        <section className="border rounded-[2.5rem] bg-transparent mr-[30rem] mt-[10rem]">
+          <form
+            className="w-[50rem] h-[50rem] mt-30 ml-40"
+            onSubmit={handleSubmit}
+          >
+            <div className="leading-20">
+              <div className="mb-20">
+                <label htmlFor="access" className="text-[2.2rem] block">
+                  Senha de Acesso: <span className="text-[#D80835]">*</span>
+                </label>
+                <input
+                  type="password"
+                  id="access"
+                  name="access"
+                  required
+                  minLength={1}
+                  maxLength={40}
+                  placeholder="Digite sua senha de acesso"
+                  className="mt-8 block w-[40rem] border-b border-white bg-transparent text-[1.8rem] text-neutral-950 outline-none placeholder-black"
+                />
+              </div>
+
+              <div className="mb-20">
+                <label htmlFor="num_account" className="text-[2.2rem] block">
+                  Número da conta: <span className="text-[#D80835]">*</span>
+                </label>
+                <input
+                  type="text"
+                  id="num_account"
+                  name="num_account"
+                  placeholder="Digite o número da conta"
+                  className="mt-8 block w-[40rem] border-b border-white bg-transparent text-[1.8rem] text-neutral-950 outline-none appearance-none placeholder-black"
+                />
+              </div>
+
+              <div className="flex justify-center mr-[10rem] mt-[7rem]">
+                <button
+                  type="submit"
+                  className="text-[2rem] bg-[white] text-green-kpp py-[1rem] px-[5rem] uppercase rounded-[2rem] border-2 border-transparent hover:bg-white hover:text-[black] hover:border-[black] transition-all duration-00"
+                >
+                  Acessar minha conta
+                </button>
+              </div>
+            </div>
+          </form>
+        </section>
       </div>
 
       <Footer />
