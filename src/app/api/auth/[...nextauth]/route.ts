@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/no-require-imports */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import NextAuth, { NextAuthOptions } from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
 import axios from '@/api';
@@ -28,8 +28,6 @@ const authOptions: NextAuthOptions = {
 
         if (!access_token) throw new Error('Falha na autenticação');
 
-        (await cookies()).set('access_token', access_token);
-
         const payload = JSON.parse(
           Buffer.from(access_token.split('.')[1], 'base64').toString(),
         );
@@ -38,17 +36,15 @@ const authOptions: NextAuthOptions = {
 
         const bankAccountId = Number(id);
 
-        await axios.get(`${apiUrl}/bankaccount/${bankAccountId}`, {
-          headers: { Authorization: `Bearer ${access_token}` },
-        });
+        await axios.get(`${apiUrl}/bankaccount/${bankAccountId}`);
 
         const userId = bankAccountId;
 
-        const { data: user } = await axios.get(`${apiUrl}/user/${userId}`, {
-          headers: { Authorization: `Bearer ${access_token}` },
-        });
+        const { data: user } = await axios.get(`${apiUrl}/user/${userId}`);
 
         if (!user) throw new Error('Usuário não encontrado');
+
+        (await cookies()).set('access_token', access_token);
 
         return {
           id: user.id,
@@ -61,24 +57,11 @@ const authOptions: NextAuthOptions = {
     }),
   ],
   callbacks: {
-    async jwt({ token, user }) {
-      if (user) {
-        token.id = user.id;
-        token.cpf = user.cpf;
-        token.name = user.name;
-        token.email = user.email;
-        token.access_token = user.access_token;
-      }
+    async jwt({ token }) {
       return token;
     },
     async session({ session, token }) {
-      session.user = {
-        id: token.id as number,
-        cpf: token.cpf as string,
-        name: token.name as string,
-        email: token.email as string,
-        access_token: token.access_token as string,
-      };
+      session.user = token as any;
       return session;
     },
   },

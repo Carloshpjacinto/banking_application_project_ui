@@ -13,9 +13,9 @@ export async function getProfile(): Promise<BankAccount> {
 
   const { id } = decryptToken(accessToken);
 
-  const { data } = await axios.get<BankAccount>(`${apiUrl}/bankaccount/${id}`, {
-    headers: { Authorization: `Bearer ${accessToken}` },
-  });
+  console.log(id)
+
+  const { data } = await axios.get(`${apiUrl}/bankaccount/${id}`);
 
   return data;
 }

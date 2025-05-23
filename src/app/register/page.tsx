@@ -2,7 +2,7 @@
 'use client';
 import Image from 'next/image';
 import Footer from '@/components/Footer';
-import { signupUser } from '../api/auth/signupUser/action';
+import { signupUser } from '../api/auth/RegisterUser/action';
 import { useActionState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';

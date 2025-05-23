@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-html-link-for-pages */
 import DetailPage from '@/components/DetailPage';
 import Image from 'next/image';
 import DetailRow from '@/components/DetailRow';
@@ -25,6 +26,13 @@ const PerfilPage = async () => {
           className="rounded-lg w-50 h-20 object-cover ml-[5rem]"
         />
         <div></div>
+        <a
+          type="submit"
+          className="text-[2.5rem] hover:text-black transition-colors duration-500"
+          href="/"
+        >
+          Sair
+        </a>
       </nav>
 
       <div className="mt-[-10rem]">
@@ -38,7 +46,9 @@ const PerfilPage = async () => {
               className="rounded-full w-50 h-50 object-cover"
             />
             <div className="flex flex-col mt-4 justify-center">
-              <span className='text-[2rem]'>{new Date().toLocaleDateString('pt-BR')}</span>
+              <span className="text-[2rem]">
+                {new Date().toLocaleDateString('pt-BR')}
+              </span>
             </div>
           </div>
 
@@ -81,6 +91,24 @@ const PerfilPage = async () => {
             />
           </div>
         </DetailPage>
+        <div className="mt-8 mb-6 flex justify-center">
+          <div className="flex gap-25 px-4 py-2">
+            <a
+              href="/transfer"
+              className="text-[2.2rem] px-3 py-2 bg-green-kpp text-white rounded-md hover:bg-green-800 transition"
+            >
+              Transferência
+            </a>
+            <a
+              href="/history"
+              className="text-[2.2rem] px-3 py-2 bg-green-kpp text-white rounded-md hover:bg-green-800 transition"
+            >
+              Histórico
+            </a>
+          </div>
+        </div>
+
+        <hr className="my-10 text-green-kpp" />
       </div>
     </>
   );

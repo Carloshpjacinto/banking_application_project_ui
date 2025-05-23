@@ -18,7 +18,7 @@ const Navbar = () => {
             Abra sua conta
           </button>
         </a>
-        <a className="ml-20" href="/login">
+        <a className="ml-20 hover:text-black transition-colors duration-500" href="/login">
           Acessar
         </a>
       </div>

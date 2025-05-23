@@ -5,7 +5,7 @@ import { FormEvent, useActionState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import Footer from '@/components/Footer';
-import { signupBankAccount } from '@/app/api/auth/signupBankAccount/action';
+import { signupBankAccount } from '@/app/api/auth/RegisterAccess/action';
 
 const initialState = { error: false, message: '' };
 

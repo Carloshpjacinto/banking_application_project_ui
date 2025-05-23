@@ -115,14 +115,65 @@ app.post('/auth/register/access', (req, res) => {
 
   app.db.get('bankaccount').push(newBankAccount).write();
 
-
-    const token = jwt.sign({ sub: newBankAccount.id }, MOCKED_SECRET, {
-      expiresIn: '1h',
-    })
+  const token = jwt.sign({ sub: newBankAccount.id }, MOCKED_SECRET, {
+    expiresIn: '1h',
+  });
 
   return res.status(201).json({ user: newBankAccount, access_token: token });
 });
 
+function extractCpfFromToken(req) {
+  const authHeader = req.headers.authorization;
+  if (!authHeader) return null;
+
+  const token = authHeader.split(' ')[1];
+
+  try {
+    const payloadBase64 = token.split('.')[1];
+    const decodedPayload = JSON.parse(
+      Buffer.from(payloadBase64, 'base64').toString('utf8'),
+    );
+    return decodedPayload.CPF || null;
+  } catch (error) {
+    console.error('Erro ao decodificar token:', error);
+    return null;
+  }
+}
+
+app.get(`${apiUrl}/auth/bankaccounthistory`, (req, res) => {
+  const cpf = extractCpfFromToken(req)
+  const { description } = req.query;
+
+  if (cpf) {
+    return res
+      .status(401)
+      .json({ message: 'Unauthorized: CPF not found in token' });
+  }
+
+  let filteredHistory = router.db
+    .get('bankaccounthistory')
+    .filter((item) => item.cpf_sender === cpf || item.cpf_recipient === cpf);
+
+  switch (description) {
+    case 'RECEIVED':
+      filteredHistory = filteredHistory.filter(
+        (item) => item.cpf_recipient === cpf && item.description === 'RECEIVED',
+      );
+      break;
+    case 'SENT':
+      filteredHistory = filteredHistory.filter(
+        (item) => item.cpf_sender === cpf && item.description === 'SENT',
+      );
+      break;
+    case 'DEPOSIT':
+      filteredHistory = filteredHistory.filter(
+        (item) => item.cpf_recipient === cpf && item.description === 'DEPOSIT',
+      );
+      break;
+  }
+
+  return res.status(200).json(filteredHistory);
+});
 app.use(router);
 
 app.listen(3000, () => {
