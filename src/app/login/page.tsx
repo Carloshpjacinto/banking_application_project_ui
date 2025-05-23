@@ -1,12 +1,11 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @next/next/no-html-link-for-pages */
-'use client';
+'use client'
 import { signIn } from 'next-auth/react';
 import { FormEvent } from 'react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import Footer from '@/components/Footer';
-import FormLogin from '@/components/Forms/FormLogin';
 
 export default function LoginPage() {
   const router = useRouter();
@@ -129,7 +128,6 @@ export default function LoginPage() {
           </form>
         </section>
       </div>
-
       <Footer />
     </div>
   );

@@ -1,31 +1,30 @@
 {
   "bankaccount": [
     {
-      "id": 1,
+      "id": 2,
       "access": "010203",
+      "type_bank_account": "CURRENT_ACCOUNT",
       "agency": "0001",
       "num_account": "8080-1",
       "account_balance": "500",
       "credit": "500",
       "special_check": "250",
       "debit_account": "0",
-      "type_bank_account": "CURRENT_ACCOUNT",
       "user_id": 1,
       "user": {
         "id": 1,
-        "name": "Fulano de Tal",
+        "name": "Fulano de Tal - 1",
         "email": "fulano@teste.com",
         "CPF": "123.456.789-00"
       }
     }
   ],
-
   "user": [
     {
-      "id": 1,
-      "name": "Fulano de Tal",
-      "email": "fulano@teste.com",
-      "cpf": "123.456.789-00"
+      "id": 2,
+      "name": "Carlos Henrique Parreira Jacinto",
+      "email": "carlo.henrique37@gmail.com",
+      "CPF": "47652644836"
     }
   ]
 }

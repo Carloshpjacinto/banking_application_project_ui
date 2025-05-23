@@ -1,7 +1,10 @@
+/* eslint-disable @typescript-eslint/no-require-imports */
 import NextAuth, { NextAuthOptions } from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
 import axios from '@/api';
 import { cookies } from 'next/headers';
+
+const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
 const authOptions: NextAuthOptions = {
   providers: [
@@ -16,7 +19,7 @@ const authOptions: NextAuthOptions = {
 
         const { num_account, access } = credentials;
 
-        const loginResponse = await axios.post('/auth/login', {
+        const loginResponse = await axios.post(`${apiUrl}/auth/login`, {
           num_account,
           access,
         });
@@ -35,16 +38,13 @@ const authOptions: NextAuthOptions = {
 
         const bankAccountId = Number(id);
 
-        await axios.get(
-          `/bankaccount/${bankAccountId}`,
-          {
-            headers: { Authorization: `Bearer ${access_token}` },
-          },
-        );
+        await axios.get(`${apiUrl}/bankaccount/${bankAccountId}`, {
+          headers: { Authorization: `Bearer ${access_token}` },
+        });
 
         const userId = bankAccountId;
 
-        const { data: user } = await axios.get(`/user/${userId}`, {
+        const { data: user } = await axios.get(`${apiUrl}/user/${userId}`, {
           headers: { Authorization: `Bearer ${access_token}` },
         });
 
@@ -56,7 +56,6 @@ const authOptions: NextAuthOptions = {
           name: user.name,
           email: user.email,
           access_token,
-          image: user.avatar,
         };
       },
     }),
