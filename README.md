@@ -57,3 +57,11 @@ cd banking_application_project_ui
 ### 4. Execução da aplicação
 
 #### npm run dev
+
+## ❓ Execução da aplicação com Mock server
+
+#### O mock foi utilizado para facilitar a construção da aplicação em relação aos testes de cadastro de usuários, gerenciamento de contas e simulação de transferências bancárias, sem a necessidade de o backend estar em execução.
+
+### O comando para executar a aplicação em modo mock é npm run dev:mock
+
+### ⚠️ Atenção ao executar a aplicação com o mock server, pois, em caso de conflito de portas, o próprio Next.js altera automaticamente a porta da aplicação.
