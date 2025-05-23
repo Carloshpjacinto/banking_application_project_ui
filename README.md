@@ -1,36 +1,59 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🏦 Banking Application - Frontend  
 
-## Getting Started
+### Interface web para gerenciamento de contas e movimentações bancárias. Construída com **React.js**, **Next.js (App Router)** e **TypeScript**.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+##### 📄 Para informações mais detalhadas, a documentação e os registros de ADR estão disponíveis em uma pasta do projeto.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🚀 Tecnologias Utilizadas
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+<div>
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original-wordmark.svg" width="40" height="40" style="margin-right: 10px;" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original-wordmark.svg" width="40" height="40" style="margin-right: 10px;" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" width="40" height="40" style="margin-right: 10px;" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/axios/axios-plain.svg" width="40" height="40" />
+</div>
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 📁 Arquitetura  
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### O frontend utiliza o **Next.js**, promovendo modularização, reuso de componentes, e layouts aninhados. A aplicação segue os princípios do **Single Responsibility Principle**, garantindo escalabilidade e manutenibilidade. O uso de **TypeScript** reforça a segurança e previsibilidade do código.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+##### A comunicação com o backend é realizada via requisições HTTP usando a biblioteca **Axios**.
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 👨‍💻 Principais funcionalidades:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+##### Interface responsiva para cadastro e login de usuários
+##### Dashboard com saldo e movimentações
+##### Visualização de transações bancárias filtradas (enviadas, recebidas e depósitos)
+##### Realização de transferências entre contas
+##### Consumo de API segura com autenticação via JWT
+
+---
+
+## ⚙️ Instalação e Execução
+
+### 1. Clone o repositório
+
+#### bash
+
+git clone https://github.com/Carloshpjacinto/banking_application_project_ui.git<br>
+cd banking_application_project_ui
+
+### 2. Instalação das dependencias
+
+#### npm install
+
+### 3. Execução dos testes
+
+#### 
+
+### 4. Execução da aplicação
+
+#### npm run dev
