@@ -1,6 +1,6 @@
 # 🏦 Banking Application - Frontend  
 
-### Interface web para gerenciamento de contas e movimentações bancárias. Construída com **React.js**, **Next.js (App Router)** e **TypeScript**.
+### Interface web para gerenciamento de contas e movimentações bancárias. Construída com **React.js**, **Next.js** e **TypeScript**.
 
 ---
 
