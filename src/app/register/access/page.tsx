@@ -1,34 +1,23 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-
 'use client';
 import { signIn } from 'next-auth/react';
-import { FormEvent } from 'react';
+import { FormEvent, useActionState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import Footer from '@/components/Footer';
-import FormRegisterAccess from '@/components/Forms/FormRegisterAccess';
+import { signupBankAccount } from '@/app/api/auth/signupBankAccount/action';
 
-export default function LoginPage() {
+const initialState = { error: false, message: '' };
+
+export default function RegisterAccess() {
   const router = useRouter();
+  const [state, formAction] = useActionState(signupBankAccount, initialState);
 
-  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    const form = event.target as HTMLFormElement;
-    const email = form.email.value;
-    const num_account = form.password.value;
-
-    const response = await signIn('credentials', {
-      redirect: false,
-      email,
-      num_account,
-    });
-
-    if (response?.ok) {
-      router.push('/');
-    } else {
-      alert('erro na autenticação');
+  useEffect(() => {
+    if (state.success) {
+      router.push('/perfil');
     }
-  };
+  }, [state.success, router]);
 
   return (
     <div className="min-h-screen w-full bg-green-kpp font-sans text-white">
@@ -66,8 +55,65 @@ export default function LoginPage() {
             </div>
           </section>
         </main>
+        <section className="border rounded-[2.5rem] bg-transparent mr-[30rem] mt-[10rem]">
+          <form className="w-[50rem] h-[50rem] mt-30 ml-40" action={formAction}>
+            <div className="leading-20">
+              <div className="mb-20">
+                <label htmlFor="access" className="text-[2.2rem] block">
+                  Senha de Acesso: <span className="text-[#D80835]">*</span>
+                </label>
+                <input
+                  type="password"
+                  id="access"
+                  name="access"
+                  required
+                  minLength={1}
+                  maxLength={40}
+                  placeholder="Digite uma senha de 6 digitos"
+                  className="mt-8 block w-[40rem] border-b border-white bg-transparent text-[1.8rem] text-neutral-950 outline-none placeholder-black"
+                />
+              </div>
 
-        <FormRegisterAccess />
+              <div className="mb-20">
+                <label className="text-[2.2rem] block mb-8">
+                  Tipo de conta: <span className="text-[#D80835]">*</span>
+                </label>
+                <div className="flex items-center space-x-20 text-[1.8rem]">
+                  <div className="flex items-center">
+                    <input
+                      type="radio"
+                      id="contaCorrente"
+                      name="type_bank_account"
+                      value="CURRENT_ACCOUNT"
+                      className="mr-4 w-6 h-6"
+                    />
+                    <label htmlFor="contaCorrente">Conta Corrente</label>
+                  </div>
+
+                  <div className="flex items-center">
+                    <input
+                      type="radio"
+                      id="contaPoupanca"
+                      name="type_bank_account"
+                      value="SAVINGS_ACCOUNT"
+                      className="mr-4 w-6 h-6"
+                    />
+                    <label htmlFor="contaPoupanca">Conta Poupança</label>
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex justify-center mr-[10rem] mt-[7rem]">
+                <button
+                  type="submit"
+                  className="text-[2rem] bg-[white] text-green-kpp py-[1rem] px-[5rem] uppercase rounded-[2rem] border-2 border-transparent hover:bg-white hover:text-[black] hover:border-[black] transition-all duration-00"
+                >
+                  Criar conta
+                </button>
+              </div>
+            </div>
+          </form>
+        </section>
       </div>
 
       <Footer />
