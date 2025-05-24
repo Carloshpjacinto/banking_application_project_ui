@@ -2,20 +2,15 @@
 import axios from 'axios';
 import { redirect } from 'next/navigation';
 import { cookies } from 'next/headers';
+import { BankAccountAccountHistory } from '@/types/bankAccountHistory';
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
-export type ItemHistorico = {
-  tipo: 'ENVIADA' | 'RECEBIDA' | 'DEPOSITO';
-  valor: number;
-  data: string;
-  contaDestino: string;
-};
 
 const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
 export async function getHistory(
   description?: 'RECEIVED' | 'SENT' | 'DEPOSIT',
-): Promise<ItemHistorico[]> {
+): Promise<BankAccountAccountHistory[]> {
   const accessToken = (await cookies()).get('access_token')?.value;
   if (!accessToken) redirect('/login');
 
@@ -26,12 +21,14 @@ export async function getHistory(
     },
   });
 
-  console.log(data)
+  console.log(data);
 
   return data.map((item: any) => ({
-    tipo: item.description,
-    valor: item.value,
-    data: item.created_at,
-    contaDestino: item.destiny_account,
+    cpf_sender: item.cpf_sender,
+    cpf_recipient: item.cpf_recipient,
+    transfer_type: item.transfer_type,
+    description: item.description,
+    transfer_value: item.transfer_value,
+    date_transfer: item.date_transfer,
   }));
 }

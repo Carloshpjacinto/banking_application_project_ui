@@ -12,16 +12,16 @@ export default function Home() {
           alt="Foto_de_modelo"
           width={600}
           height={600}
-          sizes="(max-width: 750px) 100vw, 600px"
+          sizes="(max-width: 1024px) 100vw, 600px"
           quality={90}
           priority
-          className="ml-[12.5rem]"
+          className="ml-[12.5rem] w-full max-w-[600px] md:hidden lg:block lg:ml-[2rem]"
         />
         <div>
-          <h1 className="ml-[-5rem] mt-[5rem] font-black text-[7rem] text-green-kpp">
+          <h1 className="ml-[-5rem] mt-[5rem] font-black text-[7rem] text-green-kpp md:text-[5rem] md:ml-[5rem] lg:ml-[4rem]">
             Onde ideias viram impacto. <br /> Vem ser Kontopp.
           </h1>
-          <div className="mt-[4rem] ml-[-2rem] font-medium text-[2rem] leading-[5rem] mr-[40rem]">
+          <div className="mt-[4rem] ml-[-2rem] font-medium text-[2rem] leading-[5rem] mr-[40rem] md:ml-[5rem] md:mr-[5rem]">
             <p>
               O <strong>Kontopp</strong> é um banco digital que nasce com um
               propósito claro: unir{' '}

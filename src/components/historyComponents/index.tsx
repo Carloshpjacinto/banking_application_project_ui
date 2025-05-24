@@ -2,7 +2,8 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { getHistory, ItemHistorico } from '@/app/api/banckaccounthistory/action';
+import { getHistory } from '@/app/api/banckaccounthistory/action';
+import { BankAccountAccountHistory } from '@/types/bankAccountHistory';
 
 const filtroParaDescricao = {
   enviadas: 'SENT',
@@ -13,12 +14,13 @@ const filtroParaDescricao = {
 const HistoricoCliente = ({
   historicoInicial,
 }: {
-  historicoInicial: ItemHistorico[];
+  historicoInicial: BankAccountAccountHistory[];
 }) => {
-  const [filtro, setFiltro] = useState<
-    | 'enviadas' | 'recebidas' | 'depositos'
-  >('enviadas');
-  const [historico, setHistorico] = useState<ItemHistorico[]>(historicoInicial);
+  const [filtro, setFiltro] = useState<'enviadas' | 'recebidas' | 'depositos'>(
+    'enviadas',
+  );
+  const [historico, setHistorico] =
+    useState<BankAccountAccountHistory[]>(historicoInicial);
 
   useEffect(() => {
     const fetch = async () => {
@@ -40,19 +42,16 @@ const HistoricoCliente = ({
       </h1>
 
       <div className="flex justify-center gap-4 mt-6">
-        {(['enviadas', 'recebidas', 'depositos'] as const).map(
-          (tipo) => (
-            <button
-              key={tipo}
-              onClick={() => setFiltro(tipo)}
-              className={`px-4 py-2 rounded ${filtro === tipo ? 'bg-green-kpp text-white' : 'bg-gray-200'}`}
-            >
-              {tipo.charAt(0).toUpperCase() + tipo.slice(1)}
-            </button>
-          ),
-        )}
+        {(['enviadas', 'recebidas', 'depositos'] as const).map((tipo) => (
+          <button
+            key={tipo}
+            onClick={() => setFiltro(tipo)}
+            className={`px-4 py-2 rounded ${filtro === tipo ? 'bg-green-kpp text-white' : 'bg-gray-200'}`}
+          >
+            {tipo.charAt(0).toUpperCase() + tipo.slice(1)}
+          </button>
+        ))}
       </div>
-
       <div className="mt-10">
         {historico.length === 0 ? (
           <p className="text-[1.6rem] text-gray-500">
@@ -67,22 +66,23 @@ const HistoricoCliente = ({
               >
                 <div>
                   <p>
-                    <strong>Tipo:</strong> {item.tipo}
+                    <strong>Tipo:</strong> {item.transfer_type}
                   </p>
                   <p>
-                    <strong>Valor:</strong> R${' '}
-                    {item.valor?.toFixed(2) ?? '0.00'}
+                    <strong>Valor:</strong> R$ {item.transfer_value}
                   </p>
                   <p>
-                    <strong>Data:</strong>{' '}
-                    {item.data
-                      ? new Date(item.data).toLocaleDateString('pt-BR')
-                      : 'N/A'}
+                    <strong>Data:</strong> {item.date_transfer || 'N/A'}
                   </p>
                 </div>
                 <div>
                   <p>
-                    <strong>Conta:</strong> {item.contaDestino}
+                    <strong>CPF:</strong>{' '}
+                    {filtro === 'enviadas'
+                      ? item.cpf_recipient
+                      : filtro === 'recebidas'
+                        ? item.cpf_sender
+                        : item.cpf_recipient}
                   </p>
                 </div>
               </li>

@@ -48,14 +48,14 @@ export default function Register() {
           </div>
         </div>
 
-        <div className="flex flex-row justify-between">
+        <div className="xl:flex xl:flex-row xl:justify-between md:flex md:justify-center md:ml-[15rem] md:mt-[5rem] lg:mt-[10rem] lg:ml-[20rem] xl:mt-[0rem]">
           <main className="flex flex-col items-center text-center mt-55 ml-40 px-8">
             <section
               id="infoContact"
-              className="flex flex-col items-center max-w-[800px]"
+              className="flex flex-col items-center max-w-[800px] md:hidden lg:block"
             >
-              <div className="mb-[20rem]">
-                <h1 className="text-[5.5rem] font-semibold mb-8">
+              <div className="xl:mb-[20rem] lg:mb-[10rem]">
+                <h1 className="xl:text-[5.5rem] font-semibold mb-8 lg:text-[4rem]">
                   Crie sua conta e conheça o novo!
                 </h1>
                 <p className="text-[2.2rem]">

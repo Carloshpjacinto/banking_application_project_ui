@@ -34,13 +34,13 @@ export default function RegisterAccess() {
       </div>
 
       <div className="flex flex-row justify-between">
-        <main className="flex flex-col items-center text-center mt-45 ml-40 px-8">
+        <main className="flex flex-col items-center text-center mt-45 ml-40 px-8 md:ml-30">
           <section
             id="infoContact"
-            className="flex flex-col items-center max-w-[800px]"
+            className="flex flex-col items-center max-w-[800px] md:hidden lg:block"
           >
             <div className="mb-[20rem]">
-              <h1 className="text-[5.5rem] font-semibold mb-8">
+              <h1 className="xl:text-[5.5rem] font-semibold xl:mb-8 lg:text-[4rem]">
                 Cadastre uma senha de 6 dígitos para criar sua conta digital!
               </h1>
               <p className="text-[2.2rem]">
@@ -55,7 +55,7 @@ export default function RegisterAccess() {
             </div>
           </section>
         </main>
-        <section className="border rounded-[2.5rem] bg-transparent mr-[30rem] mt-[10rem]">
+        <section className="border rounded-[2.5rem] bg-transparent mr-[30rem] mt-[10rem] lg:mr-[10rem]">
           <form className="w-[50rem] h-[50rem] mt-30 ml-40" action={formAction}>
             <div className="leading-20">
               <div className="mb-20">
