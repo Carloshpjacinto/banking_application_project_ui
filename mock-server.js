@@ -21,8 +21,17 @@ app.post('/auth/login', (req, res) => {
     .find({ num_account, access })
     .value();
 
+    const user = router.db
+      .get('user')
+      .find({ id: Number(bankAccount.id) })
+      .value();
+
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+
   if (bankAccount) {
-    const token = jwt.sign({ sub: bankAccount.id }, MOCKED_SECRET, {
+    const token = jwt.sign({ sub: user.id, cpf: user.CPF, name: user.name, email: user.email }, MOCKED_SECRET, {
       expiresIn: '1h',
     });
 
@@ -128,23 +137,28 @@ function extractCpfFromToken(req) {
 
   const token = authHeader.split(' ')[1];
 
+  
+
   try {
     const payloadBase64 = token.split('.')[1];
     const decodedPayload = JSON.parse(
       Buffer.from(payloadBase64, 'base64').toString('utf8'),
     );
-    return decodedPayload.CPF || null;
+
+    return decodedPayload.cpf
   } catch (error) {
     console.error('Erro ao decodificar token:', error);
     return null;
   }
 }
 
-app.get(`${apiUrl}/auth/bankaccounthistory`, (req, res) => {
-  const cpf = extractCpfFromToken(req)
+app.get(`/auth/bankaccounthistory`, (req, res) => {
+  const cpf = extractCpfFromToken(req);
   const { description } = req.query;
 
-  if (cpf) {
+  console.log(description)
+
+  if (!cpf) {
     return res
       .status(401)
       .json({ message: 'Unauthorized: CPF not found in token' });

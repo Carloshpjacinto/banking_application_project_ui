@@ -41,7 +41,7 @@ export default function LoginPage() {
           priority
           className="w-50 h-20 object-cover"
         />
-        <div className="flex items-center text-[2rem] font-medium space-x-20 mr-[5rem]">
+        <div className="flex items-center text-[2rem] font-medium space-x-20 mr-[5rem] md:mr-[1.5rem] lg:mr-[5rem]">
           <a
             href="/"
             className="hover:text-black transition-colors duration-500"
@@ -56,14 +56,14 @@ export default function LoginPage() {
         </div>
       </div>
 
-      <div className="flex flex-row justify-between">
-        <main className="flex flex-col items-center text-center mt-50 ml-40 px-8">
+      <div className="md:flex md:justify-center lg:flex lg:justify-between md:mt-40 xl:mt-0">
+        <main className="flex flex-col items-center text-center mt-50 px-8 md:ml-0 lg:ml-20 xl:ml-40 lg:mt-80">
           <section
             id="infoContact"
-            className="flex flex-col items-center max-w-[800px]"
+            className="flex flex-col items-center max-w-[800px] md:hidden lg:block"
           >
-            <div className="mb-[15rem]">
-              <h1 className="text-[5.5rem] font-semibold mb-8">
+            <div className="lg:mb-[15rem]">
+              <h1 className="font-semibold mb-8 md:text-[4rem] lg:text-[4rem] xl-text-[5.5rem]">
                 Acesse sua conta e fique por dentro das novidades!
               </h1>
               <p className="text-[2.2rem]">
@@ -81,14 +81,14 @@ export default function LoginPage() {
           </section>
         </main>
 
-        <section className="border rounded-[2.5rem] bg-transparent mr-[30rem] mt-[10rem]">
+        <section className="border rounded-[2.5rem] bg-transparent md:mr-[0rem] lg:mr-[10rem] lg:mt-[20rem] xl:mr-[20rem] xl:mt-[10rem]">
           <form
-            className="w-[50rem] h-[50rem] mt-30 ml-40"
+            className="mt-30 ml-40 md:w-[60rem] md:h-[65rem] md:ml-0 lg:ml-0 lg:h-[50rem]"
             onSubmit={handleSubmit}
           >
-            <div className="leading-20">
+            <div className="leading-20 md:p-[5rem]">
               <div className="mb-20">
-                <label htmlFor="access" className="text-[2.2rem] block">
+                <label htmlFor="access" className="text-[2.2rem]">
                   Senha de Acesso: <span className="text-[#D80835]">*</span>
                 </label>
                 <input

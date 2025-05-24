@@ -19,9 +19,9 @@ export default async function TransferPage() {
   const formAction = transfer.bind(null, initialState);
 
   return (
-    <div className="flex flex-col w-full px-10 py-20 sm:px-20 md:px-32 lg:px-56 xl:px-72">
-      <section className="flex flex-col mt-2 sm:flex-row">
-        <article className="w-full">
+    <div className="flex flex-col w-full px-10 py-20 lg:px-56 xl:px-72">
+      <section className="flex flex-col mt-2 xl:flex-row">
+        <article className="w-full mb-[2rem]">
           <h1 className="font-bold text-[8rem] text-green-kpp">
             Transferência
           </h1>
@@ -95,7 +95,7 @@ export default async function TransferPage() {
           </form>
         </article>
 
-        <article className="w-full h-auto shadow-lg rounded-xl ml-0 p-8 flex flex-col justify-start self-start sm:ml-10 bg-green-kpp">
+        <article className="w-full h-auto shadow-lg rounded-xl ml-0 p-8 flex flex-col justify-start self-start bg-green-kpp">
           <span className="flex text-[4rem] font-bold text-white">
             Detalhes da conta
           </span>
