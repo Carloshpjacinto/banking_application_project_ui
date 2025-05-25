@@ -3,29 +3,144 @@
     {
       "id": 1,
       "access": "010203",
+      "type_bank_account": "SAVINGS_ACCOUNT",
       "agency": "0001",
       "num_account": "8080-1",
       "account_balance": "500",
       "credit": "500",
       "special_check": "250",
       "debit_account": "0",
-      "type_bank_account": "CURRENT_ACCOUNT",
       "user_id": 1,
       "user": {
         "id": 1,
-        "name": "Fulano de Tal",
+        "name": "Carlos Henrique Parreira Jacinto",
+        "email": "carlo.henrique37@gmail.com",
+        "CPF": "47652644836"
+      }
+    },
+    {
+      "id": 2,
+      "access": "010203",
+      "type_bank_account": "CURRENT_ACCOUNT",
+      "agency": "0001",
+      "num_account": "8080-2",
+      "account_balance": "500",
+      "credit": "500",
+      "special_check": "250",
+      "debit_account": "0",
+      "user_id": 2,
+      "user": {
+        "id": 2,
+        "name": "Fulano de Tal - 1",
         "email": "fulano@teste.com",
-        "CPF": "123.456.789-00"
+        "CPF": "47652644840"
       }
     }
   ],
-
   "user": [
     {
       "id": 1,
-      "name": "Fulano de Tal",
+      "name": "Carlos Henrique Parreira Jacinto",
+      "email": "carlo.henrique37@gmail.com",
+      "CPF": "47652644836"
+    },
+    {
+      "id": 2,
+      "name": "Fulano de Tal - 1",
       "email": "fulano@teste.com",
-      "cpf": "123.456.789-00"
+      "CPF": "47652644840"
+    },
+    {
+      "id": 3,
+      "name": "Carlos Henrique Parreira Jacinto",
+      "email": "carlo.henrique37@gmail.com",
+      "CPF": "47652644836"
+    },
+    {
+      "id": 4,
+      "name": "carlos",
+      "email": "carlo.henrique37@gmail.com",
+      "CPF": "475654585"
+    },
+    {
+      "id": 5,
+      "name": "carlos",
+      "email": "carlo.henrique37@gmail.com",
+      "CPF": "48456"
+    },
+    {
+      "id": 6,
+      "name": "carlos",
+      "email": "carlo.henrique37@gmail.com",
+      "CPF": "48456"
+    },
+    {
+      "id": 7,
+      "name": "carlos",
+      "email": "carlo.henrique37@gmail.com",
+      "CPF": "48456"
+    },
+    {
+      "id": 8,
+      "name": "carlos",
+      "email": "carlo.henrique37@gmail.com",
+      "CPF": "48456"
+    }
+  ],
+  "bankaccounthistory": [
+    {
+      "id": 1,
+      "cpf_sender": "47652644836",
+      "cpf_recipient": "47652644840",
+      "transfer_type": "PIX",
+      "description": "SENT",
+      "transfer_value": "500",
+      "date_transfer": "23/05/2025"
+    },
+    {
+      "id": 2,
+      "cpf_sender": "47652644836",
+      "cpf_recipient": "47652644840",
+      "transfer_type": "PIX",
+      "description": "RECEIVED",
+      "transfer_value": "500",
+      "date_transfer": "23/05/2025"
+    },
+    {
+      "id": 3,
+      "cpf_sender": "47652644840",
+      "cpf_recipient": "47652644836",
+      "transfer_type": "PIX",
+      "description": "SENT",
+      "transfer_value": "500",
+      "date_transfer": "23/05/2025"
+    },
+    {
+      "id": 4,
+      "cpf_sender": "47652644840",
+      "cpf_recipient": "47652644836",
+      "transfer_type": "PIX",
+      "description": "RECEIVED",
+      "transfer_value": "500",
+      "date_transfer": "23/05/2025"
+    },
+    {
+      "id": 5,
+      "cpf_sender": "47652644836",
+      "cpf_recipient": "47652644836",
+      "transfer_type": "DEPOSIT",
+      "description": "DEPOSIT",
+      "transfer_value": "500",
+      "date_transfer": "23/05/2025"
+    },
+    {
+      "id": 6,
+      "cpf_sender": "123456789",
+      "cpf_recipient": "5851584558",
+      "transfer_type": "DEPOSIT",
+      "description": "DEPOSIT",
+      "transfer_value": "500",
+      "date_transfer": "23/05/2025"
     }
   ]
 }
