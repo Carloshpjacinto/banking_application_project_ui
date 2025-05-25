@@ -6,22 +6,24 @@ export default function Home() {
   return (
     <>
       <Navbar />
-      <main className="mr-[0rem] mt-[2.5rem] text-default flex flex-row">
-        <Image
-          src="/imagemDaHome.png"
-          alt="Foto_de_modelo"
-          width={600}
-          height={600}
-          sizes="(max-width: 1024px) 100vw, 600px"
-          quality={90}
-          priority
-          className="ml-[12.5rem] w-full max-w-[600px] md:hidden lg:block lg:ml-[2rem]"
-        />
-        <div>
-          <h1 className="ml-[-5rem] mt-[5rem] font-black text-[7rem] text-green-kpp md:text-[5rem] md:ml-[5rem] lg:ml-[4rem]">
-            Onde ideias viram impacto. <br /> Vem ser Kontopp.
+      <main className="flex flex-col-reverse lg:flex-row items-center px-6 py-12 text-default">
+        <div className="w-full lg:w-1/2 mb-8 lg:mb-0 flex justify-center">
+          <Image
+            src="/imagemDaHome.png"
+            alt="Foto_de_modelo"
+            width={600}
+            height={600}
+            quality={90}
+            priority
+            className="hidden xl:block max-w-full h-auto"
+          />
+        </div>
+        <div className="w-full lg:w-1/2">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-green-kpp mb-8 text-center lg:text-[7rem] lg:mt-[-10rem] lg:ml-[-25rem]">
+            Onde ideias viram impacto.
+            <br /> Vem ser Kontopp.
           </h1>
-          <div className="mt-[4rem] ml-[-2rem] font-medium text-[2rem] leading-[5rem] mr-[40rem] md:ml-[5rem] md:mr-[5rem]">
+          <div className="text-lg md:text-xl leading-relaxed space-y-6 text-justify xl:text-[2rem] xl:ml-[-8rem] xl:mr-[10rem] xl:mt-[5rem]">
             <p>
               O <strong>Kontopp</strong> é um banco digital que nasce com um
               propósito claro: unir{' '}

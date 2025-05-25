@@ -14,11 +14,11 @@ const Navbar = () => {
       />
       <div>
         <a href="/register">
-          <button className="border border-white rounded-full text-white px-4 py-2 cursor-pointer hover:bg-white hover:text-green-kpp transition-colors duration-500">
+          <button className="border border-white rounded-full text-white px-4 py-2 cursor-pointer hover:bg-white hover:text-green-kpp transition-colors duration-700">
             Abra sua conta
           </button>
         </a>
-        <a className="ml-20 hover:text-black transition-colors duration-500" href="/login">
+        <a className="ml-20 hover:text-black transition-colors duration-700" href="/login">
           Acessar
         </a>
       </div>
