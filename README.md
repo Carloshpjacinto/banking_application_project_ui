@@ -41,6 +41,8 @@ Valor: digitar o valor da transferência.
 Função da conta: Crédito (disponível apenas se a conta for conta corrente).
 Tipo de transferência: Pix.
 
+##### Realizar transferências por crédito gera um débito na conta (esse valor não é alterado com a realização de depósitos).
+
 #### - Para realizar transferências Pix por Débito:
 Preencher o CPF do destinatário (a conta deve existir no sistema).
 Valor: digitar o valor da transferência.
