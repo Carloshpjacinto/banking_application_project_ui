@@ -30,11 +30,30 @@
 
 ## 👨‍💻 Principais funcionalidades:
 
-##### Interface responsiva para cadastro e login de usuários
-##### Dashboard com saldo e movimentações
+#### Interface responsiva para cadastro e login de usuários
+#### Consumo de API segura com autenticação via JWT
+#### Dashboard com saldo e movimentações
+#### Realização de transferências entre contas
+
+  ##### - Para realizar transferências Pix por Crédito:
+    Preencher o CPF do destinatário (a conta deve existir no sistema).
+    Valor: digitar o valor da transferência.
+    Função da conta: Crédito (disponível apenas se a conta for conta corrente).
+    Tipo de transferência: Pix.
+
+  ##### Para realizar transferências Pix por Débito:
+  Preencher o CPF do destinatário (a conta deve existir no sistema).
+  Valor: digitar o valor da transferência.
+  Função da conta: Débito.
+  Tipo de transferência: Pix.
+
+  ##### Para realizar transferências do tipo Depósito:
+  Preencher o próprio CPF da conta.
+  Valor: digitar o valor da transferência.
+  Função da conta: não é necessário selecionar.
+  Tipo de transferência: Depósito.
+
 ##### Visualização de transações bancárias filtradas (enviadas, recebidas e depósitos)
-##### Realização de transferências entre contas
-##### Consumo de API segura com autenticação via JWT
 
 ---
 
@@ -62,3 +81,5 @@ cd banking_application_project_ui
 ### O comando para executar a aplicação em modo mock é npm run dev:mock
 
 ### ⚠️ Atenção ao executar a aplicação com o mock server, pois, em caso de conflito de portas, o próprio Next.js altera automaticamente a porta da aplicação.
+
+### ⚠️ Para realizar transferências, é necessário que o backend esteja em execução, pois o mock não simula essa ação.
