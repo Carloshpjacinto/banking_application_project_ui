@@ -35,23 +35,23 @@
 #### Dashboard com saldo e movimentações
 #### Realização de transferências entre contas
 
-  ##### - Para realizar transferências Pix por Crédito:
+    ##### - Para realizar transferências Pix por Crédito:
     Preencher o CPF do destinatário (a conta deve existir no sistema).
     Valor: digitar o valor da transferência.
     Função da conta: Crédito (disponível apenas se a conta for conta corrente).
     Tipo de transferência: Pix.
 
-  ##### Para realizar transferências Pix por Débito:
-  Preencher o CPF do destinatário (a conta deve existir no sistema).
-  Valor: digitar o valor da transferência.
-  Função da conta: Débito.
-  Tipo de transferência: Pix.
+    ##### Para realizar transferências Pix por Débito:
+    Preencher o CPF do destinatário (a conta deve existir no sistema).
+    Valor: digitar o valor da transferência.
+    Função da conta: Débito.
+    Tipo de transferência: Pix.
 
-  ##### Para realizar transferências do tipo Depósito:
-  Preencher o próprio CPF da conta.
-  Valor: digitar o valor da transferência.
-  Função da conta: não é necessário selecionar.
-  Tipo de transferência: Depósito.
+    ##### Para realizar transferências do tipo Depósito:
+    Preencher o próprio CPF da conta.
+    Valor: digitar o valor da transferência.
+    Função da conta: não é necessário selecionar.
+    Tipo de transferência: Depósito.
 
 ##### Visualização de transações bancárias filtradas (enviadas, recebidas e depósitos)
 
@@ -61,10 +61,10 @@
 
 ### 1. Clone o repositório
 
-#### bash
+    #### Terminal
 
-git clone https://github.com/Carloshpjacinto/banking_application_project_ui.git<br>
-cd banking_application_project_ui
+    git clone https://github.com/Carloshpjacinto/banking_application_project_ui.git<br>
+    cd banking_application_project_ui
 
 ### 2. Instalação das dependencias
 
