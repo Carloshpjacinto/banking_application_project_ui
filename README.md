@@ -35,23 +35,23 @@
 #### Dashboard com saldo e movimentações
 #### Realização de transferências entre contas
 
-    ##### - Para realizar transferências Pix por Crédito:
-    Preencher o CPF do destinatário (a conta deve existir no sistema).
-    Valor: digitar o valor da transferência.
-    Função da conta: Crédito (disponível apenas se a conta for conta corrente).
-    Tipo de transferência: Pix.
+##### - Para realizar transferências Pix por Crédito:
+Preencher o CPF do destinatário (a conta deve existir no sistema).
+Valor: digitar o valor da transferência.
+Função da conta: Crédito (disponível apenas se a conta for conta corrente).
+Tipo de transferência: Pix.
 
-    ##### Para realizar transferências Pix por Débito:
-    Preencher o CPF do destinatário (a conta deve existir no sistema).
-    Valor: digitar o valor da transferência.
-    Função da conta: Débito.
-    Tipo de transferência: Pix.
+##### - Para realizar transferências Pix por Débito:
+Preencher o CPF do destinatário (a conta deve existir no sistema).
+Valor: digitar o valor da transferência.
+Função da conta: Débito.
+Tipo de transferência: Pix.
 
-    ##### Para realizar transferências do tipo Depósito:
-    Preencher o próprio CPF da conta.
-    Valor: digitar o valor da transferência.
-    Função da conta: não é necessário selecionar.
-    Tipo de transferência: Depósito.
+##### - Para realizar transferências do tipo Depósito:
+Preencher o próprio CPF da conta.
+Valor: digitar o valor da transferência.
+Função da conta: não é necessário selecionar.
+Tipo de transferência: Depósito.
 
 ##### Visualização de transações bancárias filtradas (enviadas, recebidas e depósitos)
 
@@ -61,24 +61,25 @@
 
 ### 1. Clone o repositório
 
-    #### Terminal
+#### bash
 
     git clone https://github.com/Carloshpjacinto/banking_application_project_ui.git<br>
-    cd banking_application_project_ui
 
 ### 2. Instalação das dependencias
 
-#### npm install
+    npm install
 
 ### 4. Execução da aplicação
 
-#### npm run dev
+    npm run dev
 
 ## ❓ Execução da aplicação com Mock server
 
 #### O mock foi utilizado para facilitar a construção da aplicação em relação aos testes de cadastro de usuários, gerenciamento de contas e simulação de transferências bancárias, sem a necessidade de o backend estar em execução.
 
-### O comando para executar a aplicação em modo mock é npm run dev:mock
+### O comando para executar a aplicação em modo mock:
+
+    npm run dev:mock
 
 ### ⚠️ Atenção ao executar a aplicação com o mock server, pois, em caso de conflito de portas, o próprio Next.js altera automaticamente a porta da aplicação.
 
