@@ -82,7 +82,7 @@ export default async function TransferPage() {
               >
                 <option value=" "> </option>
                 <option value="PIX_TRANSFER">Pix</option>
-                {isCurrent && <option value="DEPOSIT">Deposito</option>}
+                <option value="DEPOSIT">Deposito</option>
               </select>
             </label>
 

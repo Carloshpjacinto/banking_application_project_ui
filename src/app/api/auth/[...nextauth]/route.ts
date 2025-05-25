@@ -19,7 +19,6 @@ const authOptions: NextAuthOptions = {
 
         const { num_account, access } = credentials;
 
-
         const loginResponse = await axios.post(`${apiUrl}/auth/login`, {
           num_account,
           access,
