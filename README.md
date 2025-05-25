@@ -53,6 +53,9 @@ Valor: digitar o valor da transferência.
 Função da conta: não é necessário selecionar.
 Tipo de transferência: Depósito.
 
+#### Explicação da função Cheque Especial:
+O cheque especial é utilizado quando o usuário não possui saldo em conta ou valor em crédito para realizar transferências. Nesse caso, o valor da transferência será enviado e descontado do cheque especial, tornando o saldo da conta negativo. O valor negativado será cobrado automaticamente ao realizar um depósito: o valor devido será descontado, e o restante ficará disponível para novas transferências.
+
 ### Visualização de transações bancárias filtradas (enviadas, recebidas e depósitos)
 
 ---
