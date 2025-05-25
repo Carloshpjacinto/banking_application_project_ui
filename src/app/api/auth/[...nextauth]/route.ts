@@ -25,8 +25,6 @@ const authOptions: NextAuthOptions = {
           access,
         });
 
-        console.log(loginResponse);
-
         const { access_token } = loginResponse.data;
 
         if (!access_token) throw new Error('Falha na autenticação');
@@ -38,8 +36,6 @@ const authOptions: NextAuthOptions = {
         const { sub: id } = payload;
 
         const bankAccountId = Number(id);
-
-        await axios.get(`${apiUrl}/bankaccount/${bankAccountId}`);
 
         const userId = bankAccountId;
 

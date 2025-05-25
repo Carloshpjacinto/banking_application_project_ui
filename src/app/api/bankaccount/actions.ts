@@ -13,9 +13,9 @@ export async function getProfile(): Promise<BankAccount> {
 
   const { id } = decryptToken(accessToken);
 
-  console.log(id)
-
   const { data } = await axios.get(`${apiUrl}/bankaccount/${id}`);
+
+  console.log(data)
 
   return data;
 }
