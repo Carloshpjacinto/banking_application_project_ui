@@ -49,10 +49,6 @@ cd banking_application_project_ui
 
 #### npm install
 
-### 3. Execução dos testes
-
-#### 
-
 ### 4. Execução da aplicação
 
 #### npm run dev
