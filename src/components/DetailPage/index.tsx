@@ -1,7 +1,6 @@
 import { ReactNode } from 'react';
 import DetailRow from '../DetailRow';
 import { BankAccount } from '@/types/BankAccount';
-import TransferEffect from '@/app/transfer/transfereffect';
 
 type DetailPageProps = {
   backButton?: ReactNode;
@@ -22,7 +21,6 @@ const DetailPage = ({ title, children, bankAccount }: DetailPageProps) => {
   const IsCurrent = type_bank_account;
   return (
     <>
-      <TransferEffect />
       <div className="flex flex-col w-full px-10 py-20 sm:px-20 md:px-32 lg:px-56 xl:px-72">
         <section className="w-full flex justify-between"></section>
         <section className="relative w-full h-80 mt-2"></section>
