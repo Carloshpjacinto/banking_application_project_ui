@@ -1,36 +1,91 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🏦 Banking Application - Frontend
 
-## Getting Started
+#### A aplicação foi deployada na Vercel. Acesse: https://banking-application-project-ui.vercel.app
 
-First, run the development server:
+### Interface web para gerenciamento de contas e movimentações bancárias. Construída com **Next.js** e **TypeScript**.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+##### 📄 Para informações mais detalhadas, a documentação e os registros de ADR estão disponíveis em uma pasta do projeto.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🚀 Tecnologias Utilizadas
 
-## Learn More
+<div>
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original-wordmark.svg" width="40" height="40" style="margin-right: 10px;" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" width="40" height="40" style="margin-right: 10px;" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/axios/axios-plain.svg" width="40" height="40" />
+</div>
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📁 Arquitetura  
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### O frontend utiliza o **Next.js**, promovendo modularização, reuso de componentes, e layouts aninhados. A aplicação segue os princípios do **Single Responsibility Principle**, garantindo escalabilidade e manutenibilidade. O uso de **TypeScript** reforça a segurança e previsibilidade do código.
 
-## Deploy on Vercel
+##### A comunicação com o backend é realizada via requisições HTTP usando a biblioteca **Axios**.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 👨‍💻 Principais funcionalidades:
+
+### Interface responsiva para cadastro e login de usuários
+### Consumo de API segura com autenticação via JWT
+### Dashboard com saldo e movimentações
+### Realização de transferências entre contas
+
+#### - Para realizar transferências Pix por Crédito:
+Preencher o CPF do destinatário (a conta deve existir no sistema).
+Valor: digitar o valor da transferência.
+Função da conta: Crédito (disponível apenas se a conta for conta corrente).
+Tipo de transferência: Pix.
+
+##### Realizar transferências por crédito gera um débito na conta (esse valor não é alterado com a realização de depósitos).
+
+#### - Para realizar transferências Pix por Débito:
+Preencher o CPF do destinatário (a conta deve existir no sistema).
+Valor: digitar o valor da transferência.
+Função da conta: Débito.
+Tipo de transferência: Pix.
+
+#### - Para realizar transferências do tipo Depósito:
+Preencher o próprio CPF da conta.
+Valor: digitar o valor da transferência.
+Função da conta: não é necessário selecionar.
+Tipo de transferência: Depósito.
+
+#### Explicação da função Cheque Especial:
+O cheque especial é utilizado quando o usuário não possui saldo em conta ou valor em crédito para realizar transferências. Nesse caso, o valor da transferência será enviado e descontado do cheque especial, tornando o saldo da conta negativo. O valor negativado será cobrado automaticamente ao realizar um depósito: o valor devido será descontado, e o restante ficará disponível para novas transferências.
+
+### Visualização de transações bancárias filtradas (enviadas, recebidas e depósitos)
+
+---
+
+## ⚙️ Instalação e Execução
+
+### 1. Clone o repositório
+
+#### bash
+
+    git clone https://github.com/Carloshpjacinto/banking_application_project_ui.git<br>
+
+### 2. Instalação das dependencias
+
+    npm install
+
+### 4. Execução da aplicação
+
+    npm run dev
+
+## ❓ Execução da aplicação com Mock server
+
+#### O mock foi utilizado para facilitar a construção da aplicação em relação aos testes de cadastro de usuários, gerenciamento de contas e simulação de transferências bancárias, sem a necessidade de o backend estar em execução.
+
+### O comando para executar a aplicação em modo mock:
+
+    npm run dev:mock
+
+### ⚠️ Atenção ao executar a aplicação com o mock server, pois, em caso de conflito de portas, o próprio Next.js altera automaticamente a porta da aplicação.
+
+### ⚠️ Para realizar transferências, é necessário que o backend esteja em execução, pois o mock não simula essa ação.
