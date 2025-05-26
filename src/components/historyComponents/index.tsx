@@ -72,17 +72,22 @@ const HistoricoCliente = ({
                     <strong>Valor:</strong> R$ {item.transfer_value}
                   </p>
                   <p>
-                    <strong>Data:</strong> {item.date_transfer || 'N/A'}
+                    <strong>Data:</strong>{' '}
+                    {item.date_transfer
+                      ? new Date(item.date_transfer).toLocaleDateString('pt-BR')
+                      : '25/05/2025'}
                   </p>
                 </div>
                 <div>
                   <p>
-                    <strong>CPF:</strong>{' '}
-                    {filtro === 'enviadas'
-                      ? item.cpf_recipient
-                      : filtro === 'recebidas'
-                        ? item.cpf_sender
-                        : item.cpf_recipient}
+                    <strong>
+                      {filtro === 'recebidas'
+                        ? 'CPF remetente:'
+                        : 'CPF destinatário:'}
+                    </strong>{' '}
+                    {filtro === 'recebidas'
+                      ? item.cpf_sender
+                      : item.cpf_recipient}
                   </p>
                 </div>
               </li>

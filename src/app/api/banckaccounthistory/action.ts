@@ -21,8 +21,6 @@ export async function getHistory(
     },
   });
 
-  console.log(data);
-
   return data.map((item: any) => ({
     cpf_sender: item.cpf_sender,
     cpf_recipient: item.cpf_recipient,
